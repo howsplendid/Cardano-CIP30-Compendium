@@ -1,0 +1,29 @@
+{
+  "name": "cardano-cip30-compendium",
+  "version": "1.0.0",
+  "description": "Simple CIP-30 SPA",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/howsplendid/Cardano-CIP30-Compendium.git"
+  },
+  {
+   "dependencies": {
+   "connect": "^3.6.5",
+   "serve-static": "^1.13.1"
+   }
+  },
+ "keywords": [
+    "Cardano",
+    "CIP-30"
+  ],
+  "author": "Rohan Leach",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/howsplendid/Cardano-CIP30-Compendium/issues"
+  },
+  "homepage": "https://github.com/howsplendid/Cardano-CIP30-Compendium#readme"
+}
