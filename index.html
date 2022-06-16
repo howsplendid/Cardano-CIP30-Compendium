@@ -26,6 +26,8 @@
             <h2>The wallet icon</h2>
             <p>example:</p>
             <code>window.cardano.nami.icon</code>
+            <span id="fooBar">&nbsp;</span>
+            <div id="imageDiv"></div>
             <h2>The wallet API version</h2>
             <p>example:</p>
             <code>window.cardano.nami.apiVersion</code>
@@ -50,6 +52,23 @@
             console.log("wallet enable, " + walletType);
             let p = walletType;
             window.cardano[p].enable();
+
+            /**
+             * This is WIP
+             * In order to get some of the functionality to be instaticated, we have to open a wallet first
+             * So things like icons, will be triggered by the enable button
+             * I will be working on this as there are CIP-30 flaws in  most wallets, ie. Yoroi doesn't have an icon
+             * 
+             */
+
+            /**
+             * Icon
+             * 
+             */
+
+            console.log(window.cardano.nami.icon);
+            document.getElementById('imageDiv').innerHTML =
+                '<img width="100" height="100" alt="icon" src="' + window.cardano.nami.icon + '">';
         }
 
         function walletIsEnabled(walletType) {

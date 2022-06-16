@@ -225,3 +225,14 @@ q {
 h2 {
     margin: 2.5em 0 1em;
 }
+
+
+/**
+ * Images
+ *
+ *
+ */
+
+img {
+    margin: 20px 0;
+}
