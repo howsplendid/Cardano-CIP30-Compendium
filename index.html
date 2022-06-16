@@ -15,11 +15,14 @@
         <section>
             <h2>To open a wallet (in this case Nami)</h2>
             <p>example:</p>
-            <code>window.cardano.nami.enable();</code>
-            <button onclick="walletEnable()">Open Nami</button>
+            <code>window.cardano.yoroi.enable();</code>
+            <button onclick="walletEnable('nami')">Open Nami</button>
+            <button onclick="walletEnable('yoroi')">Open Yoroi</button>
             <h2>To see if a wallet is enabled</h2>
             <p>example:</p>
-            <code>window.cardano.nami.isEnabled();</code>
+            <code>window.cardano.yoroi.isEnabled();</code>
+            <button onclick="walletIsEnabled('nami')">is Nami enabled?</button>
+            <button onclick="walletIsEnabled('yoroi')">is Yoroi enabled?</button>
             <h2>The wallet icon</h2>
             <p>example:</p>
             <code>window.cardano.nami.icon</code>
@@ -43,8 +46,16 @@
         </section>
     </main>
     <script>
-        function walletEnable() {
-            window.cardano.nami.enable();
+        function walletEnable(walletType) {
+            console.log("wallet enable, " + walletType);
+            let p = walletType;
+            window.cardano[p].enable();
+        }
+
+        function walletIsEnabled(walletType) {
+            console.log("wallet isEnabled, " + walletType);
+            let p = walletType;
+            window.cardano[p].isEnabled().then(console.log());
         }
     </script>
 </body>

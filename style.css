@@ -40,7 +40,10 @@ main {
 }
 
 section {
+    border-bottom: 2px solid black;
     width: auto;
+    overflow: auto;
+    padding: 0px 0 40px;
 }
 
 aside {
@@ -167,6 +170,7 @@ button {
     padding: 1em 4em;
     display: block;
     background-color: bisque;
+    cursor: pointer;
 }
 
 fieldset {
