@@ -236,3 +236,9 @@ h2 {
 img {
     margin: 20px 0;
 }
+
+#getUtxos,
+#getUsedAddresses {
+    white-space: break-word;
+    word-break: break-all;
+}
