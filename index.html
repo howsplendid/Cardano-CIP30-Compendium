@@ -30,6 +30,7 @@
             <h2>The wallet API version</h2>
             <p>example:</p>
             <code>window.cardano.nami.apiVersion</code>
+            <div id="apiVersion"></div>
         </section>
         <section>
             <h2>Get the balance of the wallet</h2>
@@ -86,6 +87,22 @@
             console.log("wallet isEnabled, " + walletType);
             window.cardano[p].isEnabled().then(document.getElementById('isNamiEnabled').innerHTML = '<p>' + walletType +
                 ' enabled</p>');
+
+
+
+            /**
+             * API Version
+             *
+             */
+
+
+            document.getElementById('apiVersion').innerHTML = '<p>API version: ' +
+                window.cardano[p].apiVersion +
+                '</p>';
+
+            console.log(window.cardano[p].apiVersion);
+
+
 
             /**
              * Get Balance
