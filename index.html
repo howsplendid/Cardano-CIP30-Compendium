@@ -49,6 +49,17 @@
             <p>example: </p>
             <code>window.cardano.nami.enable().then(api => api.api.getUtxos())</code>
             <div id="getUtxos"></div>
+
+            <h2>Get NetworkID</h2>
+            <p>example:</p>
+            <code>window.cardano.nami.enable().then(api => api.getNetworkId())</code>
+            <div id="getNetworkId"></div>
+
+            <h2>Get Collateral</h2>
+            <p>example:</p>
+            <code>window.cardano.nami.enable().then(api => api.getCollateral())</code>
+            <div id="getCollateral"></div>
+
             <h2>Submit a transaction</h2>
             <p>example:</p>
             <code>window.cardano.nami.enable().then(api => api.submitTx())</code>
@@ -169,6 +180,41 @@
 
             console.log(window.cardano[p].enable().then(api =>
                 api.getUtxos()));
+
+            /**
+             * Get API version
+             *
+             */
+
+            window.cardano[p].enable().then(api =>
+                api.getNetworkId().then(result => {
+                    document.getElementById('getNetworkId').innerHTML = '<p>getNetworkId: ' +
+                        result +
+                        '<br />0 is testnet and 1 is mainnet but other networks may be returned by wallets</p>'
+                })
+            );
+
+
+            console.log(window.cardano[p].enable().then(api =>
+                api.getNetworkId()));
+
+
+            /**
+             * Get Collaterol
+             * Read the Docs for this one. There maybe issues with this, also
+             
+
+            window.cardano[p].enable().then(api =>
+                api.getNetworkId().then(result => {
+                    document.getElementById('getCollateral').innerHTML = '<p>getCollateral: ' +
+                        result + '</p>'
+                })
+            );
+
+
+            console.log(window.cardano[p].enable().then(api =>
+                api.getCollateral()));
+            */
 
         }
     </script>
