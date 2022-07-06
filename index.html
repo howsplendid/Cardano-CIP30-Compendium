@@ -12,13 +12,18 @@
 <body>
     <main>
         <h1>Cardano CIP-00030 Compendium</h1>
+        <p>To look at these examples, <b>you will need to install Nami wallet</b></p>
+        <p>Once you have installed the Nami Wallet browser extension, you can add ADA from the testnet faucet</p>
+        <code>https://testnets.cardano.org/en/testnets/cardano/tools/faucet/</code>
         <section>
-            <h2>To open a wallet (in this case Nami)</h2>
+            <h2>You have these Cardano, CIP-0030 wallets enabled:</h2>
+            <div id="cardanoWalletInstalled"></div>
+            <h2>To open Nami wallet</h2>
             <p>example:</p>
             <code>window.cardano.nami.enable();</code>
             <button onclick="walletEnable('nami')">Open Nami</button>
-            <code>window.cardano.yoroi.enable();</code>
-            <button onclick="walletEnable('yoroi')">Open Yoroi</button>
+        </section>
+        <section id="section" class="opacity">
             <h2>To see if a wallet is enabled</h2>
             <p>example:</p>
             <code>window.cardano.nami.isEnabled();</code>
@@ -31,8 +36,6 @@
             <p>example:</p>
             <code>window.cardano.nami.apiVersion</code>
             <div id="apiVersion"></div>
-        </section>
-        <section>
             <h2>Get the balance of the wallet</h2>
             <p>example:</p>
             <code>window.cardano.nami.enable().then(api => api.getBalance())</code>
@@ -67,10 +70,40 @@
     </main>
 
     <script>
+        let tag, text, p, sectionGrab;
+
+        /**
+         * Lets loop through the Cardano object and see what Wallets are enabled
+         *
+         */
+
+        console.log("You have these Cardano CIP-30, enabled wallets installed: ");
+
+        setTimeout(() => {
+            const cardanoWallet = document.getElementById('cardanoWalletInstalled');
+
+            for (const property in cardano) {
+                if (cardano[property].apiVersion) {
+                    console.log(`${property}: ${cardano[property].apiVersion}`);
+                    tag = document.createElement("p");
+                    text = document.createTextNode(`${property}: ${cardano[property].apiVersion}`);
+                    tag.appendChild(text);
+                    cardanoWallet.appendChild(tag);
+                }
+            }
+        }, 500);
+
+        /**
+         * Lets loop through the Cardano object and see what Wallets are enabled
+         *
+         */
+
         function walletEnable(walletType) {
             console.log("wallet enable, " + walletType);
-            let p = walletType;
+            p = walletType;
             window.cardano[p].enable();
+            sectionGrab = document.getElementById("section");
+            sectionGrab.classList.add("opacity1");
 
             /**
              * This is WIP
@@ -89,7 +122,6 @@
             document.getElementById('imageDiv').innerHTML =
                 '<img width="100" height="100" alt="icon" src="' + window.cardano[p].icon + '">';
 
-
             /**
              * Wallet enabled
              *
@@ -97,23 +129,18 @@
 
             console.log("wallet isEnabled, " + walletType);
             window.cardano[p].isEnabled().then(document.getElementById('isNamiEnabled').innerHTML = '<p>' + walletType +
-                ' enabled</p>');
-
-
+                ' is enabled</p>');
 
             /**
              * API Version
              *
              */
 
-
             document.getElementById('apiVersion').innerHTML = '<p>API version: ' +
                 window.cardano[p].apiVersion +
                 '</p>';
 
             console.log(window.cardano[p].apiVersion);
-
-
 
             /**
              * Get Balance
@@ -177,7 +204,6 @@
                 })
             );
 
-
             console.log(window.cardano[p].enable().then(api =>
                 api.getUtxos()));
 
@@ -194,10 +220,8 @@
                 })
             );
 
-
             console.log(window.cardano[p].enable().then(api =>
                 api.getNetworkId()));
-
 
             /**
              * Get Collaterol
@@ -210,7 +234,6 @@
                         result + '</p>'
                 })
             );
-
 
             console.log(window.cardano[p].enable().then(api =>
                 api.getCollateral()));

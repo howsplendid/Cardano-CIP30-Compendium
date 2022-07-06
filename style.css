@@ -46,6 +46,14 @@ section {
     padding: 0px 0 40px;
 }
 
+.opacity {
+    opacity: 0.2;
+}
+
+.opacity1 {
+    opacity: 1;
+}
+
 aside {
     float: right;
     padding: 20px;
