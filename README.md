@@ -3,4 +3,5 @@ Cardano CIP30 Compendium, is a lightweight, simple to understand SPA, demonstrat
 
 ## To run
 npm install
+
 node server.js
